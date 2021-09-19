@@ -46,12 +46,10 @@ while (operation != 'S') {
         calculator.addBalance(amount);        
         calculator.logBalance();        
         calculator.showUserBalance();
-        //alert(userName + ' La operacion se ha cargado correctamente, llevas gastado $ ' + userBalance);
     }
     else if (operation == 'D') {     
-        let person = parseFloat(prompt('¿ ' + userName + ' cuantos participantes tiene el ' + eventName + '?'));              
-        balancePerPerson = calculator.paymentPerPerson(person);
-        calculator.logBalance(balancePerPerson);
+        let person = parseInt(prompt('¿ ' + userName + ' cuantos participantes tiene el ' + eventName + '?'));              
+        let balancePerPerson = calculator.paymentPerPerson(person);
         alert(userName + ' La operacion se ha cargado correctamente, cada uno debe abonar $ ' + balancePerPerson);    
     }
     else { 
@@ -59,4 +57,3 @@ while (operation != 'S') {
     }
     operation = calculator.getOperation();
 }
-
