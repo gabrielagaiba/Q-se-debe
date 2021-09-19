@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q`se debe?</title>
+</head>
+<body>
+    <script src="js/main.js"></script>
+    <header>
+        <h1>Q` Se Debe?</h1>        
+    </header>
+     <!--Inicio secction-->
+    <section class= "form-name">
+            <form method="POST"  action="">
+                <label class= "form-text" for="user-name">Ingresa tu nombre</label>
+                <input class= "input-contact" type="text" name="nombre" id="user-name" placeholder="Nombre y Apellido">              
+                <button type="submit" class="btn button-form">ENVIAR</button>
+            </form>
+            <p>Bienvenid@ (user-name)!</p>          
+    </section>
+    <!--Fin section-->
+    <!--Inicio section-->  
+    <section id="event-expenses" class="section-do">
+        <h2>Crear evento
+        </h2>             
+            <img class="image-monocromatic" src="image/event-monoc.png" alt="Gastos del evento">
+            <img class="image-color" src="image/event-color.png" alt="Gastos del evento">            
+    </section>
+    <!--Fin section-->    
+
+    <!--Inicio div-->
+    <div id="event-expenses">
+        <section>
+            <h3 class="expenses">Gastos del evento</h3>
+            <form method="POST"  action="">
+                <label class= "form-text" for="date">Fecha del evento</label>
+                <input class= "input-contact" type="date" name="date" id="date" placeholder="Fecha">
+                <label class= "form-text" for="event-persons">¿Cuantas personas participan?</label>
+                <input class= "input-contact" type="number" name="event" id="event-persons" placeholder="Cantidad de personas">
+                <label class= "form-text" for="name-expenses">¿Qué pagaste?</label>
+                <input class= "input-contact" type="text" name="nombre" id="name-expenses" placeholder="Nombre del gasto"> 
+                <label class= "form-text" for="type-expenses">¿Què medio de pago usaste?</label>
+                <input class= "input-contact" type="text" name="nombre" id="type-expenses" placeholder="Medio de pago">              
+                <button type="submit" class="btn button-form">+</button>
+            </form>
+        </section>
+    </div>
+    <!--Fin div-->   
+
+</body>
+</html>
