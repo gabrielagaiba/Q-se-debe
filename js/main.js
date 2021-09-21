@@ -1,36 +1,3 @@
-class Calculator {
-    constructor(userName, event) {
-        this.userName = userName;
-        this.event = event;
-        this.userBalance = 0;
-    }
-
-    getOperation() {
-        let operation = (prompt(this.userName + ' pulsa A para agregar una compra, D para saber cuanto debe cada uno o S para salir.').toUpperCase())
-        return operation;
-    }
-
-    showItem(purchase) {
-        alert('Compraste ' + purchase);
-    }
-
-    addBalance(payment) {
-        this.userBalance = this.userBalance + payment;
-    }
-
-    paymentPerPerson(person) {
-        let result = this.userBalance / person;
-        return result;
-    }
-
-    showUserBalance() {
-        alert(this.userName + ' La operacion se ha cargado correctamente, llevas gastado $ ' + this.userBalance);
-    }
-
-    logBalance() {
-        console.log(' $ ' + this.userBalance);
-    }
-}
 
 let userName = prompt('¡Hola! Ingresa tu nombre para comenzar a operar.');
 alert('Bienvenid@ ' + (userName.toUpperCase()));
@@ -40,15 +7,15 @@ let operation = calculator.getOperation();
 
 while (operation != 'S') {
     if (operation == 'A'){  
-        let item = prompt('¿ ' + userName + ' qué compraste? ');
+        let item = prompt('¿' + userName + ' qué compraste?');
         calculator.showItem(item);
-        let amount = parseFloat(prompt(userName + ' cuánto costó?.'));
-        calculator.addBalance(amount);        
-        calculator.logBalance();        
-        calculator.showUserBalance();
+        let cost = parseFloat(prompt(userName + ' cuánto costó?'));
+        calculator.addBalance(cost);  
+        calculator.logBalance();
+        calculator.showResume();        
     }
     else if (operation == 'D') {     
-        let person = parseInt(prompt('¿ ' + userName + ' cuantos participantes tiene el ' + eventName + '?'));              
+        let person = parseInt(prompt('¿' + userName + ' cuantos participantes tiene el ' + eventName + '?'));              
         let balancePerPerson = calculator.paymentPerPerson(person);
         alert(userName + ' La operacion se ha cargado correctamente, cada uno debe abonar $ ' + balancePerPerson);    
     }
