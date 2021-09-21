@@ -7,7 +7,7 @@ class Calculator {
     }
     /*This method returns the user answer*/
     getOperation() {
-        let operation = (prompt(this.userName + ' pulsa A para agregar una compra, D para saber cuanto debe cada uno o S para salir.').toUpperCase())
+        let operation = (prompt(this.userName + ' pulsa A para agregar una compra, D para saber cuanto debe cada uno o S para salir. También puedes ordenar las compras según su precio de forma ascendente con ASC o descendente con DESC.').toUpperCase())
         return operation;
     }
     /*This method alerts what the user bought*/
@@ -36,7 +36,37 @@ class Calculator {
     logBalance() {
         console.log(this.getBalance());
     }
+    /*This method show the resumes of balance*/
     showResume() {
         alert(this.userName + ' La operacion se ha cargado correctamente, llevas gastado $ ' + this.getBalance());
+    }
+    /*This methor can be orders the price of items upwad or falling*/
+    sortSpends(order){
+        if (order == 'ASC'){
+            this.spends.sort( (firstEl, secondEl) => {
+                if (firstEl < secondEl) {
+                    return -1;
+                  }
+                  if (secondEl < firstEl) {
+                    return 1;
+                  }
+                  return 0;
+            })
+        }
+        else {
+            this.spends.sort( (firstEl, secondEl) => {
+                if(firstEl > secondEl) {
+                    return -1;
+                }
+                if (secondEl > firstEl) {
+                    return 1;
+                }
+                return 0;
+            }) 
+        }
+    }
+    /*This method displays on console the price in order as desired by the user*/
+    logSpends () {
+        console.log(this.spends);
     }
 }

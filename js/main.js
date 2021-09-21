@@ -19,6 +19,10 @@ while (operation != 'S') {
         let balancePerPerson = calculator.paymentPerPerson(person);
         alert(userName + ' La operacion se ha cargado correctamente, cada uno debe abonar $ ' + balancePerPerson);    
     }
+    else if (operation == 'ASC' || operation == 'DESC') {
+        calculator.sortSpends(operation);
+        calculator.logSpends();
+    }
     else { 
         alert('Operación invalida');
     }
