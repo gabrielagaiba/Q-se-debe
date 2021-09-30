@@ -5,6 +5,9 @@ class Calculator {
         this.event = event;
         this.spends = [];
     }
+
+    userName  = JSON.parse(localStorage.getItem(this.userName));  //agregueeeeeeeee
+
     /*This method returns the user answer*/
     getOperation() {
         let operation = (prompt(this.userName + ' pulsa A para agregar una compra, D para saber cuanto debe cada uno o S para salir. También puedes ordenar las compras según su precio de forma ascendente con ASC o descendente con DESC.').toUpperCase())
@@ -20,6 +23,7 @@ class Calculator {
     }
     /*This method iterates over the array to get the total balance*/
     getBalance(){
+        let auxiliar = JSON.parse(localStorage.getItem(this.getBalance)) //agregueeeeeee
         let auxiliar = 0;
         let index = 0;       
         for (index = 0; index < this.spends.length ; index++) {
@@ -27,6 +31,7 @@ class Calculator {
         }
         return auxiliar;
     }
+
     /*This method returns the cost per person*/
     paymentPerPerson(person) {
         let result = this.getBalance() / person;
@@ -70,3 +75,4 @@ class Calculator {
         console.log(this.spends);
     }
 }
+

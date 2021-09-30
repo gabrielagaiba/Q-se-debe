@@ -28,3 +28,8 @@ while (operation != 'S') {
     }
     operation = calculator.getOperation();
 }
+//Agregar Bienvenida al Usuario
+let welcome = document.createElement('w');
+let h2 = document.createElement('h2');
+h2.textContent = `<h2>Bienvenid@ a Q´se debe ${userName}`;
+document.body.appendChild(welcome);
