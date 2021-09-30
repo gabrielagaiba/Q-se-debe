@@ -1,35 +1,55 @@
+let calculator = new Calculator();
 
-let userName = prompt('¡Hola! Ingresa tu nombre para comenzar a operar.');
-alert('Bienvenid@ ' + (userName.toUpperCase()));
-let eventName = prompt('¿ ' + userName + ' cuál es el nombre del evento? ');
-let calculator = new Calculator(userName, eventName);
-let operation = calculator.getOperation();
-
-while (operation != 'S') {
-    if (operation == 'A'){  
-        let item = prompt('¿' + userName + ' qué compraste?');
-        calculator.showItem(item);
-        let cost = parseFloat(prompt(userName + ' cuánto costó?'));
-        calculator.addBalance(cost);  
-        calculator.logBalance();
-        calculator.showResume();        
-    }
-    else if (operation == 'D') {     
-        let person = parseInt(prompt('¿' + userName + ' cuantos participantes tiene el ' + eventName + '?'));              
-        let balancePerPerson = calculator.paymentPerPerson(person);
-        alert(userName + ' La operacion se ha cargado correctamente, cada uno debe abonar $ ' + balancePerPerson);    
-    }
-    else if (operation == 'ASC' || operation == 'DESC') {
-        calculator.sortSpends(operation);
-        calculator.logSpends();
-    }
-    else { 
-        alert('Operación invalida');
-    }
-    operation = calculator.getOperation();
+// Bienvenida al Usuario
+let nameBtn = document.getElementById('js-btn-user');
+nameBtn.addEventListener('click', answerClick);
+function answerClick() {
+    let userName = (document.getElementById('js-user-name').value).toUpperCase();
+    calculator.setUserName(userName);
+    document.getElementById('welcome-title').textContent = `Bienvenid@ a Q´se debe ${userName}`;
 }
-//Agregar Bienvenida al Usuario
-let welcome = document.createElement('w');
-let h2 = document.createElement('h2');
-h2.textContent = `<h2>Bienvenid@ a Q´se debe ${userName}`;
-document.body.appendChild(welcome);
+
+// Nombre y fecha del evento
+let eventBtn = document.getElementById('js-btn-ev');
+eventBtn.addEventListener('click', eventData);
+function eventData() {
+    let eventName = document.getElementById('js-ev-name').value;
+    let eventDate = document.getElementById('js-date').value;
+    calculator.setEventName(eventName);
+    document.getElementById('event-title').textContent = `Creaste el evento ${eventName} del día ${eventDate}.`;
+}
+
+//Detalle de gastos del evento
+let addItemForm = document.getElementById("js-operation")
+addItemForm.addEventListener('submit', addItem);
+function addItem(e) {
+    e.preventDefault();
+    let item = document.getElementById('js-item').value;
+    let cost = parseFloat(document.getElementById('js-cost').value);
+    let type = document.getElementById('js-type').value;
+    console.log(`Compraste ${item}, a $ ${cost} y lo pagaste con ${type}.`);
+    calculator.addBalance(cost);      
+    document.getElementById('js-details').textContent = `El detalle de tus gastos es: ${calculator.getSpendsString(cost)}`;
+    document.getElementById('js-balance').textContent = `La suma de tus gastos es: $ ${calculator.getBalanceString()}`;
+    document.getElementById('js-item').value = '';
+    document.getElementById('js-cost').value = '';
+    document.getElementById('js-type').value = '';
+}
+
+let orderBtn = document.getElementById('js-order-btn');
+orderBtn.addEventListener('click', orderSpends);
+function orderSpends() {
+    let order = document.getElementById('js-order').value;
+    calculator.sortSpends(order);
+    document.getElementById('js-details').textContent = `El detalle ordenado de tus gastos es: ${calculator.getSpendsString(order)}`;
+}
+
+//Detalle de asistentes al evento
+let assistantsForm = document.getElementById("js-divide-form")
+assistantsForm.addEventListener('submit', divide);
+function divide(e) {
+    e.preventDefault();
+    let person = document.getElementById('js-person').value;
+    let balancePerPerson = calculator.paymentPerPerson(person);
+    console.log(`Cada uno pagará $ ${balancePerPerson}.`);
+}

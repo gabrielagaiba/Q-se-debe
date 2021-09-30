@@ -10,25 +10,24 @@
     <title>Q`se debe?</title>
 </head>
 <body>
-    <script src="js/calculator.js"></script>
-    <script src="js/main.js"></script>    
+       
     <header>
         <h1>Q` Se Debe?</h1>        
     </header>
      <!--Inicio secction-->
-    <section id="event-user form-style" class= "form-style">
-        <h2>Hola !</h2> 
+    <section id="js-ev-user form-style" class= "form-style">
+        <h2 id="welcome-title">Hola !</h2> 
             <form method="POST"  action="" class= "event-form">
                 <label class= "form-text e-form" for="user-name">Ingresa tu nombre</label>
-                <input class= "input-contact e-form" type="text" name="name" id="user-name" placeholder="Nombre y Apellido">              
-                <button class= "e-form button-form" type="submit" class="btn button-form">ENVIAR</button>
+                <input class= "input-contact e-form" type="text" name="user-name" id="js-user-name" placeholder="Nombre y Apellido">              
+                <button class= "e-form button-form" type="button" class="btn button-form" id="js-btn-user">ENVIAR</button>
             </form>
             <!--<p>Bienvenid@ (user-name)!</p>-->       
     </section>
     <!--Fin section-->
     <!--Inicio section-->  
-    <section id="event-details" class="form-style">
-        <h2>Crear evento</h2>
+    <section id="js-event-details" class="form-style">
+        <h2 id="event-title">Crear evento</h2>
             <div class= "image-div">          
                 <img class="image-monocromatic" src="image/event-monoc.png" alt="Gastos del evento">
                 <img class="image-color" src="image/event-color.png" alt="Gastos del evento">
@@ -36,10 +35,10 @@
             <div>
                 <form method="POST"  action="" class="event-form">
                     <label class= "form-text e-form" for="event-name">¿Cómo se llama el evento?</label>
-                    <input class= "input-contact e-form" type="text" name="event-name" id="event-name" placeholder="Nombre del evento">              
+                    <input class= "input-contact e-form" type="text" name="ev-name" id="js-ev-name" placeholder="Nombre del evento">              
                     <label class= "form-text e-form" for="date">Fecha del evento</label>
-                    <input class= "input-contact e-form" type="date" name="date" id="date" placeholder="Fecha">
-                    <button type="submit" class="btn e-form button-form">ENVIAR</button>
+                    <input class= "input-contact e-form" type="date" name="date" id="js-date" placeholder="Fecha">
+                    <button type="button" class="btn e-form button-form" id="js-btn-ev">ENVIAR</button>
                 </form>
             </div>            
     </section>
@@ -49,15 +48,19 @@
     <div>
         <section id="event-expenses" class= "form-style">
             <h2 class="expenses">Carga los gastos del evento</h2>
-            <form method="POST"  action="" class="event-form">              
-                <label class= "form-text e-form" for="name-expenses">¿Qué pagaste?</label>
-                <input class= "input-contact e-form" type="text" name="name-expenses" id="name-expenses" placeholder="Nombre del gasto">
-                <label class= "form-text e-form" for="price-expenses">¿Cuánto costo?</label>
-                <input class= "input-contact e-form" type="number" step="any" name="price-expenses" id="price-expenses" placeholder="Precio">  
-                <label class= "form-text e-form" for="type-expenses">¿Qué medio de pago usaste?</label>
-                <input class= "input-contact e-form" type="text" name="type-expenses" id="type-expenses" placeholder="Medio de pago">              
-                <button type="submit" class="btn e-form button-form">+</button>
+            <form method="POST"  action="" class="event-form" id="js-operation">              
+                <label class= "form-text e-form" for="item">¿Qué pagaste?</label>
+                <input class= "input-contact e-form" type="text" name="item" id="js-item" placeholder="Nombre del gasto">
+                <label class= "form-text e-form" for="cost">¿Cuánto costo?</label>
+                <input class= "input-contact e-form" type="number" step="any" name="cost" id="js-cost" placeholder="Precio">  
+                <label class= "form-text e-form" for="type">¿Qué medio de pago usaste?</label>
+                <input class= "input-contact e-form" type="text" name="type" id="js-type" placeholder="Medio de pago">              
+                <button type="submit" class="btn e-form button-form" id="js-add">+</button>
             </form>
+        </section>
+        <section>
+            <p id="js-details"></p>
+            <p id="js-balance"></p>
         </section>
     </div>
     <!--Fin div-->   
@@ -66,11 +69,11 @@
     <section id="event-expenses" class= "form-style">
         <h2 class="expenses">¿Queres ordenar los gastos del evento?</h2>
         <form method="POST"  action="" class="event-form">
-            <select name="localidades">
-                <option value="lowest-highest">De menor a mayor</option>
-                <option value="highest-lowest">De mayor a menor</option>
+            <select id="js-order">
+                <option value="ASC">De menor a mayor</option>
+                <option value="DESC">De mayor a menor</option>
             </select>             
-            <button type="submit" class="btn e-form button-form">ORDENAR</button>
+            <button type="button" class="btn e-form button-form" id="js-order-btn">ORDENAR</button>
         </form>
     </section>   
     <!--Fin section--> 
@@ -78,14 +81,16 @@
     <div>
         <section id="event-assistants" class= "form-style">
             <h2 class="expenses">Participantes del evento</h2>
-            <form method="POST"  action="" class="event-form">
+            <form method="POST"  action="" class="event-form" id="js-divide-form">
                 <label class= "form-text e-form" for="event-persons">¿Cuántas personas participan?</label>
-                <input class= "input-contact e-form" type="number" name="event-persons" id="event-persons" placeholder="Cantidad de personas">
+                <input class= "input-contact e-form" type="number" name="event-persons" id="js-person" placeholder="Cantidad de personas">
                 <button type="submit" class="btn e-form button-form">CALCULAR</button>
             </form>
         </section>
     </div>
-    <!--Fin div-->   
-
+    <!--Fin div-->
+    
+    <script src="js/calculator.js"></script>
+    <script src="js/main.js"></script> 
 </body>
 </html>
