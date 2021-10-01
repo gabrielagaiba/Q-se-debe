@@ -19,6 +19,17 @@ function eventData() {
     document.getElementById('event-title').textContent = `Creaste el evento ${eventName} del día ${eventDate}.`;
 }
 
+//Modificacion de HTML utilizando appendChild
+function addItemHTML() {
+    let item = document.getElementById('js-item').value;
+    let cost = parseFloat(document.getElementById('js-cost').value);
+    let type = document.getElementById('js-type').value;
+    let ul = document.getElementById('js-list-item');
+    let listAddItem = document.createElement('li');
+    listAddItem.textContent = `Compraste ${item} a $ ${cost} y lo pagaste con ${type}`;
+    ul.appendChild(listAddItem);
+}
+
 //Detalle de gastos del evento
 let addItemForm = document.getElementById("js-operation")
 addItemForm.addEventListener('submit', addItem);
@@ -28,8 +39,8 @@ function addItem(e) {
     let cost = parseFloat(document.getElementById('js-cost').value);
     let type = document.getElementById('js-type').value;
     console.log(`Compraste ${item}, a $ ${cost} y lo pagaste con ${type}.`);
+    addItemHTML();
     calculator.addBalance(cost);      
-    document.getElementById('js-details').textContent = `El detalle de tus gastos es: ${calculator.getSpendsString(cost)}`;
     document.getElementById('js-balance').textContent = `La suma de tus gastos es: $ ${calculator.getBalanceString()}`;
     document.getElementById('js-item').value = '';
     document.getElementById('js-cost').value = '';
@@ -41,7 +52,7 @@ orderBtn.addEventListener('click', orderSpends);
 function orderSpends() {
     let order = document.getElementById('js-order').value;
     calculator.sortSpends(order);
-    document.getElementById('js-details').textContent = `El detalle ordenado de tus gastos es: ${calculator.getSpendsString(order)}`;
+    document.getElementById('js-order-items').textContent = `El detalle ordenado de tus gastos es: ${calculator.getSpendsString(order)}`;
 }
 
 //Detalle de asistentes al evento
