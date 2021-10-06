@@ -20,13 +20,10 @@ function eventData() {
 }
 
 //Modificacion de HTML utilizando appendChild
-function addItemHTML() {
-    let item = document.getElementById('js-item').value;
-    let cost = parseFloat(document.getElementById('js-cost').value);
-    let type = document.getElementById('js-type').value;
+function addItemHTML(content) {
     let ul = document.getElementById('js-list-item');
     let listAddItem = document.createElement('li');
-    listAddItem.textContent = `Compraste ${item} a $ ${cost} y lo pagaste con ${type}`;
+    listAddItem.textContent = content; 
     ul.appendChild(listAddItem);
 }
 
@@ -38,10 +35,11 @@ function addItem(e) {
     let item = document.getElementById('js-item').value;
     let cost = parseFloat(document.getElementById('js-cost').value);
     let type = document.getElementById('js-type').value;
-    console.log(`Compraste ${item}, a $ ${cost} y lo pagaste con ${type}.`);
-    addItemHTML();
-    calculator.addBalance(cost);      
-    document.getElementById('js-balance').textContent = `La suma de tus gastos es: $ ${calculator.getBalanceString()}`;
+    let spend = new Spends(item, cost, type);
+    console.log(spend.toString());
+    calculator.addBalance(spend);
+    addItemHTML(spend.toString());
+    document.getElementById('js-balance').textContent = `La suma de tus gastos es: $ ${calculator.getBalance()}`;
     document.getElementById('js-item').value = '';
     document.getElementById('js-cost').value = '';
     document.getElementById('js-type').value = '';
@@ -62,5 +60,5 @@ function divide(e) {
     e.preventDefault();
     let person = document.getElementById('js-person').value;
     let balancePerPerson = calculator.paymentPerPerson(person);
-    console.log(`Cada uno pagará $ ${balancePerPerson}.`);
+    document.getElementById('js-person-pay').textContent = `Cada uno pagará $ ${balancePerPerson}.`;
 }
