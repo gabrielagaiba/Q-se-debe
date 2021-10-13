@@ -19,31 +19,59 @@ function eventData() {
     document.getElementById('event-title').textContent = `Creaste el evento ${eventName} del día ${eventDate}.`;
 }
 
-//Modificacion de HTML utilizando appendChild
+//Modificacion de HTML utilizando appendChild antes de JQ
+//function addItemHTML(content) {
+    //let ul = document.getElementById('js-list-item');
+    //let listAddItem = document.createElement('li');
+    //listAddItem.textContent = content; 
+   // ul.appendChild(listAddItem);   
+//}
+
+//Modificacion de HTML utilizando append JQ con efectos
 function addItemHTML(content) {
-    let ul = document.getElementById('js-list-item');
-    let listAddItem = document.createElement('li');
-    listAddItem.textContent = content; 
-    ul.appendChild(listAddItem);
+    $('#js-list-item').append(`<li>${content}</li>`);
+    $('li:last-child').fadeIn('2000').fadeOut('2000', function(){
+        $('li:last-child').fadeIn('fast');
+    });
 }
 
-//Detalle de gastos del evento
-let addItemForm = document.getElementById("js-operation")
-addItemForm.addEventListener('submit', addItem);
-function addItem(e) {
+//Detalle de gastos del evento antes de JQ
+//let addItemForm = document.getElementById("js-operation")
+//addItemForm.addEventListener('submit', addItem);
+//function addItem(e) {
+  //  e.preventDefault();
+    //let item = document.getElementById('js-item').value;
+   // let cost = parseFloat(document.getElementById('js-cost').value);
+    //let type = document.getElementById('js-type').value;
+    //et spend = new Spends(item, cost, type);
+   // console.log(spend.toString());
+    //calculator.addBalance(spend);
+    //addItemHTML(spend.toString());
+    //document.getElementById('js-balance').textContent = `La suma de tus gastos es: $ ${calculator.getBalance()}`;
+    //document.getElementById('js-item').value = '';
+    //document.getElementById('js-cost').value = '';
+    //document.getElementById('js-type').value = '';
+//});
+
+//Detalle de gastos del evento JQ
+$('#js-operation').submit(function addItem(e){
     e.preventDefault();
-    let item = document.getElementById('js-item').value;
-    let cost = parseFloat(document.getElementById('js-cost').value);
-    let type = document.getElementById('js-type').value;
+
+    let item = $('#js-item').val();
+    console.log(item);
+    let cost = parseFloat($('#js-cost').val());
+    console.log(cost);
+    let type = $('#js-type').val();
+    console.log(type);
     let spend = new Spends(item, cost, type);
     console.log(spend.toString());
     calculator.addBalance(spend);
     addItemHTML(spend.toString());
-    document.getElementById('js-balance').textContent = `La suma de tus gastos es: $ ${calculator.getBalance()}`;
-    document.getElementById('js-item').value = '';
-    document.getElementById('js-cost').value = '';
-    document.getElementById('js-type').value = '';
-}
+    $('#js-balance').append = `La suma de tus gastos es: $ ${calculator.getBalance()}`;
+    $('#js-item').val('');
+    $('#js-cost').val('');
+    $('#js-type').val('');
+});
 
 let orderBtn = document.getElementById('js-order-btn');
 orderBtn.addEventListener('click', orderSpends);
