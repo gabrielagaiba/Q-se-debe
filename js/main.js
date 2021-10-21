@@ -1,6 +1,11 @@
 let calculator = new Calculator();
 URLGET =  "https://jsonplaceholder.typicode.com/posts";
 
+userNameStorage = localStorage.getItem('userName');
+if(userNameStorage){
+    document.getElementById('welcome-title').textContent = `Bienvenid@ a Q´se debe ${userNameStorage}`;
+}
+
 // Bienvenida al Usuario
 let nameBtn = document.getElementById('js-btn-user');
 nameBtn.addEventListener('click', answerClick);
@@ -8,6 +13,7 @@ function answerClick() {
     let userName = (document.getElementById('js-user-name').value).toUpperCase();
     calculator.setUserName(userName);
     document.getElementById('welcome-title').textContent = `Bienvenid@ a Q´se debe ${userName}`;
+    localStorage.setItem('userName', userName);
 }
 
 // Nombre y fecha del evento
