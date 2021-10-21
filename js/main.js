@@ -1,4 +1,5 @@
 let calculator = new Calculator();
+URLGET =  "https://jsonplaceholder.typicode.com/posts";
 
 // Bienvenida al Usuario
 let nameBtn = document.getElementById('js-btn-user');
@@ -16,8 +17,20 @@ function eventData() {
     let eventName = document.getElementById('js-ev-name').value;
     let eventDate = document.getElementById('js-date').value;
     calculator.setEventName(eventName);
-    document.getElementById('event-title').textContent = `Creaste el evento ${eventName} del día ${eventDate}.`;
+    let infoPost = {nombre: eventName, fecha: eventDate}
+
+// Este post simularía un alta en la Base de Datoss    
+    $.post(URLGET, infoPost, (response,state) => { 
+        console.log(response, state);
+        if(state === "success") {       
+            document.getElementById('event-title').textContent = `Creaste el evento ${response.nombre} con fecha ${response.fecha}`;
+        
+        }else {
+            document.getElementById('event-title').textContent = `Hubo un error al cargar los datos.`;
+        }
+    });
 }
+
 
 //Modificacion de HTML utilizando appendChild antes de JQ
 //function addItemHTML(content) {
