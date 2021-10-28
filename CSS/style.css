@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 *{ 
-    background-color: #FFBA00;
-    /*background-image: url(../image/pesos-arg.jpg);*/
+    /*background-color: #FFBA00;*/
+    
     font-family: 'Architects Daughter', cursive;    
     margin: 1em;
     text-align: center;
+}
+body {
+    background-color: rgb(94, 124, 94);
+    /*background-image: url(../image/pesos-arg.jpg);*/
 }
 
 h1 { 

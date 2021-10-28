@@ -2,28 +2,37 @@ let calculator = new Calculator();
 URLGET =  "https://jsonplaceholder.typicode.com/posts";
 
 $( document ).ready(function() {
-    $('#static-event-create').modal('toggle')
+    $('#exampleModalToggle').modal('toggle');
 });
 
+/* 
 userNameStorage = localStorage.getItem('userName');
 if(userNameStorage){
     document.getElementById('welcome-title').textContent = `Bienvenid@ a Q´se debe ${userNameStoragegit }`;
 }
+*/
 
 // Bienvenida al Usuario
-let nameBtn = document.getElementById('js-btn-user');
+/*let nameBtn = document.getElementById('js-btn-user');
 nameBtn.addEventListener('click', answerClick);
 function answerClick() {
     let userName = (document.getElementById('js-user-name').value).toUpperCase();
     calculator.setUserName(userName);
     document.getElementById('welcome-title').textContent = `Bienvenid@ a Q´se debe ${userName}`;
     localStorage.setItem('userName', userName);
-}
+}*/
 
-// Nombre y fecha del evento
+// Nombre usuario, nombre y fecha del evento
 let eventBtn = document.getElementById('js-btn-ev');
 eventBtn.addEventListener('click', eventData);
 function eventData() {
+
+    $('#exampleModalToggle').modal('toggle');
+    let userName = (document.getElementById('js-user-name').value).toUpperCase();
+    calculator.setUserName(userName);
+    document.getElementById('welcome-title').textContent = `Bienvenid@ a Q´se debe ${userName}`;
+    localStorage.setItem('userName', userName);
+    
     let eventName = document.getElementById('js-ev-name').value;
     let eventDate = document.getElementById('js-date').value;
     calculator.setEventName(eventName);
@@ -33,10 +42,10 @@ function eventData() {
     $.post(URLGET, infoPost, (response,state) => { 
         console.log(response, state);
         if(state === "success") {       
-            document.getElementById('staticBackdropLabel').textContent = `Creaste el evento ${response.nombre} con fecha ${response.fecha}`;
+            document.getElementById('exampleModalToggleLabel2').textContent = `Creaste el evento ${response.nombre} con fecha ${response.fecha}`;
         
         }else {
-            document.getElementById('staticBackdropLabel').textContent = `Hubo un error al cargar los datos.`;
+            document.getElementById('exampleModalToggleLabel2').textContent = `Hubo un error al cargar los datos.`;
         }
     });
 }
@@ -79,17 +88,18 @@ function addItemHTML(content) {
 //Detalle de gastos del evento JQ
 $('#js-operation').submit(function addItem(e){
     e.preventDefault();
-
+    
     let item = $('#js-item').val();
     console.log(item);
     let cost = parseFloat($('#js-cost').val());
     console.log(cost);
     let type = $('#js-type').val();
     console.log(type);
+    $('#exampleModalToggleTwo').modal('toggle');
     let spend = new Spends(item, cost, type);
     console.log(spend.toString());
     calculator.addBalance(spend);
-    addItemHTML(spend.toString());
+    addItemHTML(spend.toString());    
     $('#js-balance').append = `La suma de tus gastos es: $ ${calculator.getBalance()}`;
     $('#js-item').val('');
     $('#js-cost').val('');
@@ -111,5 +121,7 @@ function divide(e) {
     e.preventDefault();
     let person = document.getElementById('js-person').value;
     let balancePerPerson = calculator.paymentPerPerson(person);
+    $('#exampleModalToggleLabelFour').modal('toggle');
     document.getElementById('js-person-pay').textContent = `Cada uno pagará $ ${balancePerPerson}.`;
+    
 }

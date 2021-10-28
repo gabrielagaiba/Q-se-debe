@@ -32,97 +32,128 @@
     <header>
         <h1>Q` Se Debe?</h1>     
     </header>
-     <!--Inicio secction-->     
-    <section id="js-ev-user form-style" class= "form-style">
-        <h2 id="welcome-title">Hola !</h2> 
-            <form method="POST"  action="" class= "event-form">
-                <label class= "form-text e-form" for="user-name">Ingresa tu nombre</label>
-                <input class= "input-contact e-form" type="text" name="user-name" id="js-user-name" placeholder="Nombre y Apellido">              
-                <button class= "e-form button-form btn button-form"" type="button" id="js-btn-user">ENVIAR</button>
-            </form>
-            <!--<p>Bienvenid@ (user-name)!</p>-->       
-    </section>
-    <!--Fin section-->
+    
     <!--Inicio div-->
     <div>
-        <h2 id="welcome-title">¿Qué deseas hacer?</h2> 
+        <h2 id="welcome-title-one">¿Qué deseas hacer?</h2> 
 
-        <!-- Buttons trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#static-event-create">
+        <!-- Buttons trigger modal -->             
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
         Crear evento
         </button>
-
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#static-expenses">
-        Cargar gastos
-        </button>
-
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#static-order-expenses">
-        Ordenar gastos
-        </button>
-
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#static-event-assistants">
-        Participantes
-        </button>
-
     </div>
     <!--Fin div-->
-    <!--Inicio section-->
 
-
-    <!-- Modal -->
-    <div class="modal fade form-style" id="static-event-create" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <!--Inicio Modal 1-->
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Crear evento</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class= "image-div">          
-                    <img class="image-monocromatic" src="image/event-monoc.png" alt="Gastos del evento">
-                    <img class="image-color" src="image/event-color.png" alt="Gastos del evento">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalToggleLabel">Q`se debe?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h6>Completá para contiuar</h6>
+            <form method="POST"  action="" class="event-form">
+                <label class= "form-text e-form" for="user-name">Ingresa tu nombre</label>
+                <input class= "input-contact e-form" type="text" name="user-name" id="js-user-name" placeholder="Nombre"> 
+                <label class= "form-text e-form" for="event-name">¿Cómo se llama el evento?</label>
+                <input class= "input-contact e-form" type="text" name="ev-name" id="js-ev-name" placeholder="Nombre del evento">              
+                <label class= "form-text e-form" for="date">Fecha del evento</label>
+                <input class= "input-contact e-form" type="date" name="date" id="js-date" placeholder="Fecha">
+                <div class="modal-footer"> 
+                    <button type="button" class="btn btn-primary e-form button-form"" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" id="js-btn-ev">CONTINUAR</button>   
                 </div>
-                <div>
-                    <form method="POST"  action="" class="event-form">
-                        <label class= "form-text e-form" for="event-name">¿Cómo se llama el evento?</label>
-                        <input class= "input-contact e-form" type="text" name="ev-name" id="js-ev-name" placeholder="Nombre del evento">              
-                        <label class= "form-text e-form" for="date">Fecha del evento</label>
-                        <input class= "input-contact e-form" type="date" name="date" id="js-date" placeholder="Fecha">
-                        <!--<button type="button" class="btn e-form button-form" id="js-btn-ev">ENVIAR</button>-->
-                        <div class="modal-footer"> 
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>      
-                            <button type="button" class="btn btn-primary btn e-form button-form" id="js-btn-ev">Enviar</button>
-                        </div>
-                    </form>
-                </div>                
-            </div>
-
+            </form>
         </div>
         </div>
-    </div>  
+    </div>
+    </div>
+    <!--Fin Modal 1-->
+    <!--Inicio Modal 2-->
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <!--<p>Bienvenid@ (user-name)! y confirmación del evento</p>-->
+            <h2 id="welcome-title"></h2>                
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">OK</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!--Fin Modal 2-->
+    <!--Inicio section-->
+    <section class = "expenses-section">
+        <h3 class = "title-h3">Cargar Gastos</h3>
+        <!-- Buttons trigger modal -->   
+            <button type="submit" class="btn btn-primary e-form button-form" data-bs-toggle="modal" data-bs-target="#exampleModalToggleTwo"id="js-add">
+            +
+            </button>
 
-   <!-- <section id="js-event-details static-event-create " class="form-style">
-        <h2 id="event-title">Crear evento</h2>
-            <div class= "image-div">          
-                <img class="image-monocromatic" src="image/event-monoc.png" alt="Gastos del evento">
-                <img class="image-color" src="image/event-color.png" alt="Gastos del evento">
+    
+        <!--Inicio Modal 3-->
+        <div class="modal fade" id="exampleModalToggleTwo" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalToggleLabelTwo">Gastos</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body form-style" id="event-expenses">                                
+                            <form method="POST"  action="" class="event-form" id="js-operation">              
+                                <label class= "form-text e-form" for="item">¿Qué pagaste?</label>
+                                <input class= "input-contact e-form" type="text" name="item" id="js-item" placeholder="Nombre del gasto">
+                                <label class= "form-text e-form" for="cost">¿Cuánto costo?</label>
+                                <input class= "input-contact e-form" type="number" step="any" name="cost" id="js-cost" placeholder="Precio">  
+                                <label class= "form-text e-form" for="type">¿Qué medio de pago usaste?</label>
+                                <input class= "input-contact e-form" type="text" name="type" id="js-type" placeholder="Medio de pago">              
+                                <div class="modal-footer"> 
+                                    <button type="submit" class="btn btn-primary">OK</button>
+                                </div>
+                            </form>
+                    </div>
+                </div>
             </div>
-            <div>
-                <form method="POST"  action="" class="event-form">
-                    <label class= "form-text e-form" for="event-name">¿Cómo se llama el evento?</label>
-                    <input class= "input-contact e-form" type="text" name="ev-name" id="js-ev-name" placeholder="Nombre del evento">              
-                    <label class= "form-text e-form" for="date">Fecha del evento</label>
-                    <input class= "input-contact e-form" type="date" name="date" id="js-date" placeholder="Fecha">
-                    <button type="button" class="btn e-form button-form" id="js-btn-ev">ENVIAR</button>
-                </form>
-            </div>            
-    </section> -->  
-    <!--Fin section-->    
+        </div> 
+        <section>
+            <ul id="js-list-item"></ul>
+            <p id="js-balance"></p>
+        </section>
+      
+ 
+        <button type="button" class="btn btn-primary js-order" data-bs-toggle="modal" data-bs-target="#exampleModalToggleLabelTree" id ="js-order-asc" value="ASC">▲
+            </button>
 
-    <!--Inicio div-->
-    <div>
+            <button type="button" class="btn btn-primary"" data-bs-toggle="modal" data-bs-target="#exampleModalToggleLabelTree" id = "js-order-asc"value="DESC">▼
+            </button>
+     
+       
+        <!--<form method="POST"  action="" class="event-form">
+            <select id="js-order">
+                <option value="ASC">De menor a mayor</option>
+                <option value="DESC">De mayor a menor</option>
+            </select>    -->         
+            <button type="button" class="btn e-form button-form" id="js-order-btn">ORDENAR</button>
+        </form>      
+        
+    
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggleLabelFour">
+            Participantes
+            </button>
+        <section>
+            <p id="js-person-pay"></p>
+        </section>
+</section>
+  <!--  <div>
         <section id="event-expenses static-expenses" class= "form-style">
-            <h2 class="expenses">Carga los gastos del evento</h2>
+            <h2 class="expenses">Gastos</h2>
             <form method="POST"  action="" class="event-form" id="js-operation">              
                 <label class= "form-text e-form" for="item">¿Qué pagaste?</label>
                 <input class= "input-contact e-form" type="text" name="item" id="js-item" placeholder="Nombre del gasto">
@@ -130,7 +161,10 @@
                 <input class= "input-contact e-form" type="number" step="any" name="cost" id="js-cost" placeholder="Precio">  
                 <label class= "form-text e-form" for="type">¿Qué medio de pago usaste?</label>
                 <input class= "input-contact e-form" type="text" name="type" id="js-type" placeholder="Medio de pago">              
-                <button type="submit" class="btn e-form button-form" id="js-add">+</button>
+                
+                <button type="submit" class="btn btn-primary button-form" data-bs-toggle="modal" data-bs-target="#static-expenses"id="js-add">
+                    NUEVO
+                </button>
             </form>
         </section>
         <section>
@@ -139,9 +173,9 @@
         </section>
     </div>
     <!--Fin div-->   
-    <!--Inicio section-->
-   
-    <section id="event-expenses static-order-expenses" class= "form-style">
+
+
+   <!--<section id="event-expenses static-order-expenses" class= "form-style">
         <h2 class="expenses">¿Queres ordenar los gastos del evento?</h2>
         <form method="POST"  action="" class="event-form">
             <select id="js-order">
@@ -151,21 +185,32 @@
             <button type="button" class="btn e-form button-form" id="js-order-btn">ORDENAR</button>
         </form>        
         <p id="js-order-items"></p>
-    </section>   
+    </section>   --> 
     <!--Fin section--> 
     <!--Inicio div-->
-    <div>
-        <section id="event-assistants static-event-assistants" class= "form-style">
-            <h2 class="expenses">Participantes del evento</h2>
-            <form method="POST"  action="" class="event-form" id="js-divide-form">
-                <label class= "form-text e-form" for="event-persons">¿Cuántas personas participan?</label>
-                <input class= "input-contact e-form" type="number" name="event-persons" id="js-person" placeholder="Cantidad de personas">
-                <button type="submit" class="btn e-form button-form">CALCULAR</button>
-            </form>
-            <p id="js-person-pay"></p>
-        </section>
-    </div>
-    <!--Fin div-->
+    <div class="modal fade" id="exampleModalToggleLabelFour" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabelTwo">Participantes del evento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body form-style" id="event-expenses">                           
+                        <form method="POST"  action="" class="event-form" id="js-divide-form">
+                            <label class= "form-text e-form" for="event-persons">¿Cuántas personas participan?</label>
+                            <input class= "input-contact e-form" type="number" name="event-persons" id="js-person" placeholder="Cantidad de personas">
+                            <div class="modal-footer"> 
+                                <button type="submit" class="btn btn-primary e-form button-form">DIVIDIR</button>
+                            </div>                           
+                        </form>    
+
+                        
+                </div>
+            </div>
+        </div>
+    </div> 
+ 
+
 
     <!--JavaScript script-->
     <script src="js/spends.js"></script> 

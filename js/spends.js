@@ -7,7 +7,7 @@ class Spends {
     }   
 
     toString(){
-        return `Compraste ${this.item}, a $${this.cost} y lo pagaste con ${this.type}.`;
+        return `Compraste ${this.item}, pagaste con ${this.type} a $${this.cost}.`;
     }
 
     getCost(){
