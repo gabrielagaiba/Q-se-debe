@@ -1,9 +1,13 @@
 let calculator = new Calculator();
 URLGET =  "https://jsonplaceholder.typicode.com/posts";
 
+$( document ).ready(function() {
+    $('#static-event-create').modal('toggle')
+});
+
 userNameStorage = localStorage.getItem('userName');
 if(userNameStorage){
-    document.getElementById('welcome-title').textContent = `Bienvenid@ a Q´se debe ${userNameStorage}`;
+    document.getElementById('welcome-title').textContent = `Bienvenid@ a Q´se debe ${userNameStoragegit }`;
 }
 
 // Bienvenida al Usuario
@@ -29,10 +33,10 @@ function eventData() {
     $.post(URLGET, infoPost, (response,state) => { 
         console.log(response, state);
         if(state === "success") {       
-            document.getElementById('event-title').textContent = `Creaste el evento ${response.nombre} con fecha ${response.fecha}`;
+            document.getElementById('staticBackdropLabel').textContent = `Creaste el evento ${response.nombre} con fecha ${response.fecha}`;
         
         }else {
-            document.getElementById('event-title').textContent = `Hubo un error al cargar los datos.`;
+            document.getElementById('staticBackdropLabel').textContent = `Hubo un error al cargar los datos.`;
         }
     });
 }
