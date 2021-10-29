@@ -61,10 +61,13 @@ function eventData() {
 
 //Modificacion de HTML utilizando append JQ con efectos
 function addItemHTML(content) {
-    $('#js-list-item').append(`<li>${content}</li>`);
+    $('#js-list-item').append(`<li>${content} <img class='deleteMe' src='image/trash-bin1.png' alt='eliminar'></li>`);
     $('li:last-child').fadeIn('2000').fadeOut('2000', function(){
         $('li:last-child').fadeIn('fast');
     });
+    $(".deleteMe").on("click", function(){
+        $(this).closest("li").remove(); 
+     });
 }
 
 //Detalle de gastos del evento antes de JQ

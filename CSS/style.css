@@ -57,3 +57,12 @@ margin: 0.2em;
 background-color: #210440;
 color: white;    
 }
+
+li {
+    list-style: none;
+}
+
+.deleteMe {
+    width: 1.5em;
+    height: 1.5em;
+}
