@@ -106,12 +106,20 @@ $('#js-operation').submit(function addItem(e){
     $('#js-type').val('');
 });
 
-let orderBtn = document.getElementById('js-order-btn');
-orderBtn.addEventListener('click', orderSpends);
-function orderSpends() {
-    let order = document.getElementById('js-order').value;
-    calculator.sortSpends(order);
-    document.getElementById('js-order-items').textContent = `El detalle ordenado de tus gastos es: ${calculator.getSpendsString(order)}`;
+//Ordena los gastos ascendentemente
+let orderBtnAsc = document.getElementById('js-btn-asc');
+orderBtnAsc.addEventListener('click', orderSpends);
+function orderSpends() {    
+    calculator.sortSpends('ASC');
+    document.getElementById('js-order-items').textContent = `El detalle ordenado de tus gastos es: ${calculator.getSpendsString()}`;
+}
+
+//Ordena los gastos descendentemente
+let orderBtnDesc = document.getElementById('js-btn-desc');
+orderBtnDesc.addEventListener('click', orderSpendsDesc);
+function orderSpendsDesc() {    
+    calculator.sortSpends('DESC');
+    document.getElementById('js-order-items').textContent = `El detalle ordenado de tus gastos es: ${calculator.getSpendsString()}`;
 }
 
 //Detalle de asistentes al evento
