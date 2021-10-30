@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
-*{ 
-    /*background-color: #FFBA00;*/
-    
+*{     
     font-family: 'Architects Daughter', cursive;    
     margin: 1em;
     text-align: center;
 }
+
 body {
     background-color: rgb(94, 124, 94);
     /*background-image: url(../image/pesos-arg.jpg);*/
@@ -14,6 +13,7 @@ body {
 h1 { 
     text-decoration: underline;
 }
+
 .image-monocromatic, .image-color {
     width: 5em;
     height: 5em;
@@ -35,6 +35,55 @@ display: none;
 display: block;
 }
 
+.expenses-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+
+}
+
+.color-one {
+    color:white;
+    background-color: rgb(10, 10, 63);
+}
+
+.color-one:hover { 
+    color:white;
+    background-color: blue;
+    border-color: blue;
+    transform: scale(1.1);
+}
+
+.color-two {
+    color:white;
+    background-color: rgb(155, 126, 31);
+}
+
+.color-two:hover { 
+    color:white;
+    background-color: yellow;
+    border-color: yellow;
+    transform: scale(1.1);
+}
+
+.color-three {
+    font-family: 'Architects Daughter', cursive;
+    color:white;
+    background-color: rgb(102, 11, 56);
+}
+
+.color-three:hover { 
+    font-family: 'Architects Daughter', cursive;
+    color:white;
+    background-color: rgb(250, 4, 127);
+    border-color: rgb(250, 4, 127);
+    transform: scale(1.1);
+}
+
+.fade {
+    background-image: url(../image/pesos-arg.jpg) ;
+}
+
 .event-form {
 display: grid; flex-direction: column;
 justify-content:center;    
@@ -44,8 +93,16 @@ border-radius: 2px;
 margin-bottom: 0.5em;
 }
 
+.modal-content {
+    background-color: rgb(218, 175, 158);
+}
+
 .e-form {
 margin: 0.2em;
+}
+
+.form-text {
+    color: rgb(36, 32, 32);
 }
 
 .input-contact {
@@ -54,15 +111,20 @@ margin: 0.2em;
 }
 
 .button-form  {
-background-color: #210440;
+background-color: rgb(10, 44, 10);
 color: white;    
+}
+
+.button-form:hover { 
+    background-color: rgb(8, 175, 8);
+    transform: scale(1.1);
 }
 
 li {
     list-style: none;
 }
 
-.deleteMe {
+.delete-btn {
     width: 1.5em;
     height: 1.5em;
 }
