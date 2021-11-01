@@ -8,7 +8,7 @@ $(document).ready(function() {
 /* 
 userNameStorage = localStorage.getItem('userName');
 if(userNameStorage){
-    document.getElementById('welcome-title').textContent = `Bienvenid@ a Q´se debe ${userNameStoragegit }`;
+    document.getElementById('welcome-title').textContent = `Bienvenid@ a Q´se debe? ${userNameStoragegit }`;
 }
 */
 
@@ -30,7 +30,7 @@ function eventData() {
     $('#exampleModalToggle').modal('toggle');
     let userName = (document.getElementById('js-user-name').value).toUpperCase();
     calculator.setUserName(userName);
-    document.getElementById('welcome-title').textContent = `Bienvenid@ a Q´se debe ${userName}`;
+    document.getElementById('js-welcome-title').textContent = `Bienvenid@ a Q´se debe ${userName}`;
     localStorage.setItem('userName', userName);
     
     let eventName = document.getElementById('js-ev-name').value;
@@ -43,7 +43,7 @@ function eventData() {
         console.log(response, state);
         if(state === "success") {       
             document.getElementById('exampleModalToggleLabel2').textContent = `Creaste el evento ${response.nombre} con fecha ${response.fecha}`;
-            document.getElementById('welcome-subtitle').textContent = `${userName} carga tus gastos para ${response.nombre} (${response.fecha}) `;
+            document.getElementById('js-welcome-subtitle').textContent = `${userName} carga tus gastos para ${response.nombre} (${response.fecha}) `;
         }else {
             document.getElementById('exampleModalToggleLabel2').textContent = `Hubo un error al cargar los datos.`;
         }
@@ -110,18 +110,18 @@ $('#js-operation').submit(function addItem(e){
     e.preventDefault();
     
     let item = $('#js-item').val();
-    console.log(item);
-    let cost = parseFloat($('#js-cost').val());
-    console.log(cost);
+    console.log(item);;
     let type = $('#js-type').val();
     console.log(type);
+    let cost = parseFloat($('#js-cost').val());
+    console.log(cost)
     $('#exampleModalToggleTwo').modal('toggle');
     let spend = new Spends(item, type, cost);
     console.log(spend.toString());
     calculator.addBalance(spend);
     addItemHTML(item, type, cost);    
     $('#js-balance').append = `La suma de tus gastos es: $ ${calculator.getBalance()}`;
-    $('#js-cost-subtitle').append = `$ ${calculator.getBalance()}`;
+    //$('#js-cost-subtitle').append = `$ ${calculator.getBalance()}`;
     $('#js-item').val('');
     $('#js-type').val('');    
     $('#js-cost').val('');
