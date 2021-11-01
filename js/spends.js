@@ -1,9 +1,9 @@
 
 class Spends {
-    constructor(item, cost, type) {
-        this.item = item;
-        this.cost = cost;
+    constructor(item, type, cost) {
+        this.item = item;        
         this.type = type;
+        this.cost = cost;
     }   
 
     toString(){

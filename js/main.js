@@ -1,7 +1,7 @@
 let calculator = new Calculator();
 URLGET =  "https://jsonplaceholder.typicode.com/posts";
 
-$( document ).ready(function() {
+$(document).ready(function() {
     $('#exampleModalToggle').modal('toggle');
 });
 
@@ -43,7 +43,7 @@ function eventData() {
         console.log(response, state);
         if(state === "success") {       
             document.getElementById('exampleModalToggleLabel2').textContent = `Creaste el evento ${response.nombre} con fecha ${response.fecha}`;
-        
+            document.getElementById('welcome-subtitle').textContent = `${userName} carga tus gastos para ${response.nombre} (${response.fecha}) `;
         }else {
             document.getElementById('exampleModalToggleLabel2').textContent = `Hubo un error al cargar los datos.`;
         }
@@ -60,7 +60,23 @@ function eventData() {
 //}
 
 //Modificacion de HTML utilizando append JQ con efectos
-function addItemHTML(content) {
+function addItemHTML(item, type, cost) {
+    $('#js-table').append(`
+    <tr>
+        <td>${item}</td> 
+        <td>${type}</td> 
+        <td>${cost}</td> 
+        <td><img class='delete-btn' src='image/trash-bin1.png' alt='eliminar'></td>
+     </tr>`);
+    $('tr:last-child').fadeIn('2000').fadeOut('2000', function(){
+        $('tr:last-child').fadeIn('fast');
+    });
+    $(".delete-btn").on("click", function(){
+        $(this).closest("tr").remove(); 
+     });
+}
+
+/*function addItemHTML(content) {
     $('#js-list-item').append(`<li>${content} <img class='delete-btn' src='image/trash-bin1.png' alt='eliminar'></li>`);
     $('li:last-child').fadeIn('2000').fadeOut('2000', function(){
         $('li:last-child').fadeIn('fast');
@@ -68,7 +84,8 @@ function addItemHTML(content) {
     $(".delete-btn").on("click", function(){
         $(this).closest("li").remove(); 
      });
-}
+}*/
+
 
 //Detalle de gastos del evento antes de JQ
 //let addItemForm = document.getElementById("js-operation")
@@ -99,14 +116,16 @@ $('#js-operation').submit(function addItem(e){
     let type = $('#js-type').val();
     console.log(type);
     $('#exampleModalToggleTwo').modal('toggle');
-    let spend = new Spends(item, cost, type);
+    let spend = new Spends(item, type, cost);
     console.log(spend.toString());
     calculator.addBalance(spend);
-    addItemHTML(spend.toString());    
+    addItemHTML(item, type, cost);    
     $('#js-balance').append = `La suma de tus gastos es: $ ${calculator.getBalance()}`;
+    $('#js-cost-subtitle').append = `$ ${calculator.getBalance()}`;
     $('#js-item').val('');
+    $('#js-type').val('');    
     $('#js-cost').val('');
-    $('#js-type').val('');
+
 });
 
 //Ordena los gastos ascendentemente

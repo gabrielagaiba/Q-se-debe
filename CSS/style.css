@@ -1,83 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 *{     
     font-family: 'Architects Daughter', cursive;    
-    margin: 1em;
     text-align: center;
+    margin: 0.4em;
 }
 
 body {
-    background-color: rgb(94, 124, 94);
-    /*background-image: url(../image/pesos-arg.jpg);*/
+    background-color: rgb(148, 196, 148); 
 }
 
-h1 { 
+.title-h1 { 
+    font-size: 2.5em;
     text-decoration: underline;
 }
 
-.image-monocromatic, .image-color {
-    width: 5em;
-    height: 5em;
-    padding: 0.2em;
-    margin: auto;
-}
-  
-.image-div .image-monocromatic {
-display: block;
-}
-.image-div .image-color {
-display: none;
+.title-h2 { 
+   font-size: 1.4em;
+   padding: 1em;
 }
 
-.image-div:hover, .image-monocromatic {
-display: none;
+.title-h3 {
+    font-size: 1.2em;
 }
-.image-div:hover, .image-color {
-display: block;
+.expenses-section { 
+    margin: 0;
+    background-color: white;
+    height: 15em;
+    box-sizing: content-box;
+    border: solid  rgb(36, 32, 32) 2px;
+    padding: 1em;
 }
 
-.expenses-section {
+.expenses-section-buttons {
+    margin: 0;
     display: flex;
     flex-direction: row;
-    justify-content: center
-
+    justify-content: space-between;
 }
 
-.color-one {
-    color:white;
-    background-color: rgb(10, 10, 63);
+.table-style {
+    width: 95%;
+    align-items: center;
+}
+.btn, .th-borrar {
+    color: white;    
 }
 
-.color-one:hover { 
-    color:white;
-    background-color: blue;
-    border-color: blue;
+.btn:hover{
     transform: scale(1.1);
 }
 
+.color-one {
+    background-color: rgb(10, 10, 63);
+}
+
+.color-one:hover {
+    background-color: blue;
+    border-color: blue;
+  }
+
 .color-two {
-    color:white;
     background-color: rgb(155, 126, 31);
 }
 
 .color-two:hover { 
-    color:white;
     background-color: yellow;
     border-color: yellow;
-    transform: scale(1.1);
 }
 
 .color-three {
     font-family: 'Architects Daughter', cursive;
-    color:white;
     background-color: rgb(102, 11, 56);
 }
 
 .color-three:hover { 
-    font-family: 'Architects Daughter', cursive;
-    color:white;
     background-color: rgb(250, 4, 127);
     border-color: rgb(250, 4, 127);
-    transform: scale(1.1);
 }
 
 .fade {
@@ -94,7 +92,8 @@ margin-bottom: 0.5em;
 }
 
 .modal-content {
-    background-color: rgb(218, 175, 158);
+    background-color: rgb(231, 187, 169);
+    background-repeat: no-repeat;
 }
 
 .e-form {
@@ -117,6 +116,7 @@ color: white;
 
 .button-form:hover { 
     background-color: rgb(8, 175, 8);
+    color: white; 
     transform: scale(1.1);
 }
 
@@ -125,6 +125,52 @@ li {
 }
 
 .delete-btn {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+/*Tablet property*/
+@media only screen and (min-width: 401px) and (max-width: 960px){
+    .title-h1 { 
+        font-size: 2.2em;
+    }
+    
+    .title-h2 { 
+        font-size: 1.8em;
+    }
+    
+    .title-h3 { 
+        font-size: 1.4em;
+    }
+    .delete-btn {
+        width: 1.3em;
+        height: 1.3em;
+    }
+}
+
+/*Desktop property*/
+ 
+@media only screen and (min-width: 961px) {
+    body {
+        margin-left: 10%;
+        margin-right: 10%;
+    }    
+    .title-h1 { 
+        font-size: 2.6em;
+    }
+    
+    .title-h2 { 
+        font-size: 2.2em;
+    }
+    
+    .title-h3 { 
+        font-size: 1.6em;
+    }
+    .delete-btn {
+        width: 1.5em;
+        height: 1.5em;
+    }
+    .expenses-section { 
+        height: 13em;
+    }
 }

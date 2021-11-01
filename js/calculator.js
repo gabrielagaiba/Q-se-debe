@@ -26,13 +26,13 @@ class Calculator {
             let spend = this.spends[index];
             auxiliar = auxiliar + spend.getCost();
         }
-        return auxiliar;
+        return auxiliar;          
     }
 
     getSpendsString(){
         return JSON.stringify(this.spends);
     }
-
+    
     /*This method returns the cost per person*/
     paymentPerPerson(person) {
         let result = this.getBalance() / person;
