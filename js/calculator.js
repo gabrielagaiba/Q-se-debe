@@ -6,10 +6,12 @@ class Calculator {
         this.spends = [];
     }
 
+    /*This method sets the user name*/
     setUserName(userName){
         this.userName = userName;
     }
 
+    /*This method sets the event name*/
     setEventName(eventName){
         this.event = eventName;
     }
@@ -17,6 +19,12 @@ class Calculator {
     /*This method adds an expense*/
     addBalance(spend) {
         this.spends.push(spend);
+    }
+
+    /*This method removes an spend in the balance*/
+    removeBalance(index){
+        this.spends.splice(index,1);
+        console.log(this.spends);
     }
     
     /*This method iterates over the array to get the total balance*/
@@ -26,11 +34,20 @@ class Calculator {
             let spend = this.spends[index];
             auxiliar = auxiliar + spend.getCost();
         }
-        return auxiliar;          
+        return auxiliar;
+    }
+
+    getSpends(){
+        return this.spends;
     }
 
     getSpendsString(){
         return JSON.stringify(this.spends);
+    }
+
+    /*This method get the spends length*/
+    getSpendsLength(){
+        return this.spends.length;
     }
     
     /*This method returns the cost per person*/

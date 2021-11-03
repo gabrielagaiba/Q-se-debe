@@ -22,7 +22,7 @@ function answerClick() {
     localStorage.setItem('userName', userName);
 }*/
 
-// Nombre usuario, nombre y fecha del evento
+/*User name, name and date of the event*/
 let eventBtn = document.getElementById('js-btn-ev');
 eventBtn.addEventListener('click', eventData);
 function eventData() {
@@ -38,10 +38,10 @@ function eventData() {
     calculator.setEventName(eventName);
     let infoPost = {nombre: eventName, fecha: eventDate}
 
-// Este post simularía un alta en la Base de Datoss    
+// Este post simularía un alta en la Base de Datos
     $.post(URLGET, infoPost, (response,state) => { 
         console.log(response, state);
-        if(state === "success") {       
+        if(state === "success") {
             document.getElementById('exampleModalToggleLabel2').textContent = `Creaste el evento ${response.nombre} con fecha ${response.fecha}`;
             document.getElementById('js-welcome-subtitle').textContent = `${userName} carga tus gastos para ${response.nombre} (${response.fecha}) `;
         }else {
@@ -56,22 +56,27 @@ function eventData() {
     //let ul = document.getElementById('js-list-item');
     //let listAddItem = document.createElement('li');
     //listAddItem.textContent = content; 
-   // ul.appendChild(listAddItem);   
+   // ul.appendChild(listAddItem);
 //}
 
-//Modificacion de HTML utilizando append JQ con efectos
+/*HTML modification using append JQ with effects*/
 function addItemHTML(item, type, cost) {
+    btnId = calculator.getSpendsLength();
     $('#js-table').append(`
-    <tr>
-        <td>${item}</td> 
-        <td>${type}</td> 
-        <td>${cost}</td> 
-        <td><img class='delete-btn' src='image/trash-bin1.png' alt='eliminar'></td>
-     </tr>`);
-    $('tr:last-child').fadeIn('2000').fadeOut('2000', function(){
+                            <tr class='table-row'>
+                                <td>${item}</td> 
+                                <td>${type}</td> 
+                                <td>${cost}</td> 
+                                <td><img id='delete-btn-${btnId}' class='delete-btn' src='image/trash-bin1.png' alt='eliminar'></td>
+                            </tr>`
+                        );
+    /*$('tr:last-child').fadeIn('2000').fadeOut('2000', function(){
         $('tr:last-child').fadeIn('fast');
     });
-    $(".delete-btn").on("click", function(){
+    */
+    $(`#delete-btn-${btnId}`).on("click", function(btnId){
+        calculator.removeBalance(btnId);
+        document.getElementById('js-cost-subtitle').textContent = `Llevas gastado $${calculator.getBalance()}`;
         $(this).closest("tr").remove(); 
      });
 }
@@ -85,7 +90,6 @@ function addItemHTML(item, type, cost) {
         $(this).closest("li").remove(); 
      });
 }*/
-
 
 //Detalle de gastos del evento antes de JQ
 //let addItemForm = document.getElementById("js-operation")
@@ -105,46 +109,45 @@ function addItemHTML(item, type, cost) {
     //document.getElementById('js-type').value = '';
 //});
 
-//Detalle de gastos del evento JQ
+/*Event spends details with JQ*/
 $('#js-operation').submit(function addItem(e){
     e.preventDefault();
-    
     let item = $('#js-item').val();
-    console.log(item);;
     let type = $('#js-type').val();
-    console.log(type);
     let cost = parseFloat($('#js-cost').val());
-    console.log(cost)
-    $('#exampleModalToggleTwo').modal('toggle');
     let spend = new Spends(item, type, cost);
-    console.log(spend.toString());
+    addItemHTML(item, type, cost);
     calculator.addBalance(spend);
-    addItemHTML(item, type, cost);    
-    $('#js-balance').append = `La suma de tus gastos es: $ ${calculator.getBalance()}`;
-    //$('#js-cost-subtitle').append = `$ ${calculator.getBalance()}`;
+    $('#exampleModalToggleTwo').modal('toggle');
+    document.getElementById('js-cost-subtitle').textContent = `Llevas gastado $${calculator.getBalance()}`;
     $('#js-item').val('');
-    $('#js-type').val('');    
+    $('#js-type').val('');
     $('#js-cost').val('');
 
 });
 
-//Ordena los gastos ascendentemente
+/*Function that orders and updates spends*/
+function ordenarYActualizar(e){
+    calculator.sortSpends(e.target.getAttribute('order'));
+    deleteItemsTableHTML();
+    let spendsOrdered = calculator.getSpends();
+    for (let index = 0; index < spendsOrdered.length ; index++){
+        let spend = spendsOrdered[index];
+        addItemHTML(spend.getItem(), spend.getType(), spend.getCost());
+    }
+} 
+
+/*Button can be orders the price of items upwad*/
 let orderBtnAsc = document.getElementById('js-btn-asc');
-orderBtnAsc.addEventListener('click', orderSpends);
-function orderSpends() {    
-    calculator.sortSpends('ASC');
-    document.getElementById('js-order-items').textContent = `El detalle ordenado de tus gastos es: ${calculator.getSpendsString()}`;
-}
+orderBtnAsc.setAttribute('order', 'ASC');
+orderBtnAsc.addEventListener('click', ordenarYActualizar);
 
-//Ordena los gastos descendentemente
+/*Button can be orders the price of items falling*/
 let orderBtnDesc = document.getElementById('js-btn-desc');
-orderBtnDesc.addEventListener('click', orderSpendsDesc);
-function orderSpendsDesc() {    
-    calculator.sortSpends('DESC');
-    document.getElementById('js-order-items').textContent = `El detalle ordenado de tus gastos es: ${calculator.getSpendsString()}`;
-}
+orderBtnDesc.setAttribute('order', 'DESC');
+orderBtnDesc.addEventListener('click', ordenarYActualizar);
 
-//Detalle de asistentes al evento
+/*Event assistents details*/
 let assistantsForm = document.getElementById("js-divide-form")
 assistantsForm.addEventListener('submit', divide);
 function divide(e) {
@@ -154,4 +157,13 @@ function divide(e) {
     $('#exampleModalToggleLabelFour').modal('toggle');
     document.getElementById('js-person-pay').textContent = `Cada uno pagará $ ${balancePerPerson}.`;
     
+}
+
+/*This method removes items table*/
+function deleteItemsTableHTML (){
+    let tableRow = document.getElementsByClassName('table-row');
+    length = tableRow.length
+    for (let index = 0; index < length ; index++){
+        tableRow[0].remove();
+    }
 }

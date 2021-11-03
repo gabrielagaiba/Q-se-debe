@@ -1,0 +1,43 @@
+
+function ordenarYACtualizar(criterioDeOrdenamiento){
+    1)
+    calculator.sortSpends(criterioDeOrdenamiento);
+
+    2)
+    Borrar todos los <tr> que esten dentro de <table>
+    El encabezado de la tabla permanece igual
+
+    3)
+    spends = calculator.getSpends();
+    for spend in spends{
+        addItemHTML(spend.getItem(), spend.getType(), spend.getCost());
+    }
+}
+
+--> Al boton ASCENDENTE, le agregamos
+
+document.getElementById('btnOrdenASC').addEventListener('click', ordenarYActualizar('ASC'));
+
+--> Al boton DESCENDENTE, le agregamos
+
+document.getElementById('btnOrdenDESC').addEventListener('click', ordenarYActualizar('DESC'));
+
+##################################################################
+
+function eliminarYActualizar(){
+    1)
+    calcular id de boton a partir del event.target.get_attribute()...
+
+    1)
+    calculator.removeSpend(id);
+
+    2)
+    Borrar todos los <tr> que esten dentro de <table>
+    El encabezado de la tabla permanece igual
+
+    3)
+    spends = calculator.getSpends();
+    for spend in spends{
+        addItemHTML(spend.getItem(), spend.getType(), spend.getCost());
+    }
+}
