@@ -1,4 +1,4 @@
-/*Class to create de spends arrays */
+// Class to create de spends arrays
 class Spends {
     constructor(item, type, cost) {
         this.item = item;

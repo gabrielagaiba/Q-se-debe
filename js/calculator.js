@@ -1,4 +1,4 @@
-/*This file contains the objects*/
+//This file contains the objects
 class Calculator {
     constructor() {
         this.userName = null;
@@ -6,28 +6,27 @@ class Calculator {
         this.spends = [];
     }
 
-    /*This method sets the user name*/
+    // This method sets the user name
     setUserName(userName){
         this.userName = userName;
     }
 
-    /*This method sets the event name*/
+    //This method sets the event name
     setEventName(eventName){
         this.event = eventName;
     }
     
-    /*This method adds an expense*/
-    addBalance(spend) {
+    // This method adds an expense
+    addSpend(spend) {
         this.spends.push(spend);
     }
 
-    /*This method removes an spend in the balance*/
-    removeBalance(index){
+    // This method removes an spend in the balance
+    removeSpend(index){
         this.spends.splice(index,1);
-        console.log(this.spends);
     }
-    
-    /*This method iterates over the array to get the total balance*/
+
+    // This method iterates over the array to get the total balance
     getBalance(){
         let auxiliar = 0;
         for (let index = 0; index < this.spends.length ; index++) {
@@ -45,20 +44,20 @@ class Calculator {
         return JSON.stringify(this.spends);
     }
 
-    /*This method get the spends length*/
+    // This method get the spends length
     getSpendsLength(){
         return this.spends.length;
     }
     
-    /*This method returns the cost per person*/
+    // This method returns the cost per person
     paymentPerPerson(person) {
         let result = this.getBalance() / person;
         return result;
     }
 
-    /*This methor can be orders the price of items upwad or falling*/
+    // This methor can be orders the price of items upwad or falling
     sortSpends(order){
-        if (order == 'ASC'){
+        if (order == 'UP'){
             this.spends.sort( (firstEl, secondEl) => {
                 if (firstEl.getCost() < secondEl.getCost()) {
                     return -1;

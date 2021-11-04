@@ -4,52 +4,93 @@
 
 *{
     font-family: 'Architects Daughter', cursive;
-    text-align: center;
-    margin: 0.4em;
+    text-align: center;    
 }
 
 body {
     background-color: rgb(148, 196, 148); 
 }
 
-.title-h1 { 
-    font-size: 2em;
-    text-decoration: underline;
+.title-logo {
+    height: 7em;
 }
 
-.title-h2 { 
-   font-size: 1.3em;
-   padding: 1em;
+.title-h2, .paragraph-pay {
+    margin: auto;
+    font-size: 1.3em;
+    padding: 0.3em;   
+    font-weight:600;
+}
+
+.paragraph-pay {
+    color: white;
 }
 
 .title-h3 {
     font-size: 1.2em;
+    margin: 0.3em;
 }
 
 .title-h5 {
     font-size: 1.2;
+    margin: 0.3em;
+}
+
+.balance-style {
+    background-color: white;
+    border: solid rgb(36, 32, 32) 2px;
+    padding: 0.2em;
 }
 
 .subtitle-style {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .expenses-section { 
+    width: 95%;
     margin: 0;
-    background-color: white;
-    height: 15em;
     box-sizing: content-box;
     border: solid rgb(36, 32, 32) 2px;
-    padding: 1em;
+    padding: 0.5em;
+    margin: 0.3em;
+    align-items: center;
 }
 
-.expenses-section-buttons {
-    margin: 0;
+.expenses-section { 
+    background-color: white;
+    height: 15em;
+}
+
+.person-pay-style {
+    width: 95%;    
+    margin: 0.3em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.person-pay {
+    width: 80%;
+    height: 2.3em;
+    margin: auto;
+    background-color: rgb(250, 4, 127);   
+    box-sizing: content-box;
+    border: solid rgb(36, 32, 32) 1px;
+    border-radius: 5px;
+    align-items: center;
+}
+
+
+.expenses-section-buttons {   
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .table-style {
@@ -59,23 +100,16 @@ body {
 
 .btn, .th-borrar {
     color: white;
+    margin: 0.3em;
 }
 
-.btn:hover{
+.btn, .delete-btn:hover{
     transform: scale(1.1);
+    cursor:pointer;
 }
-
-.color-one {
-    background-color: rgb(10, 10, 63);
-}
-
-.color-one:hover {
-    background-color: blue;
-    border-color: blue;
-  }
 
 .color-two {
-    background-color: rgb(155, 126, 31);
+    background-color: rgb(226, 226, 17);
 }
 
 .color-two:hover { 
@@ -83,9 +117,8 @@ body {
     border-color: yellow;
 }
 
-.color-three {
-    font-family: 'Architects Daughter', cursive;
-    background-color: rgb(102, 11, 56);
+.color-three { 
+    background-color: rgb(233, 16, 124);
 }
 
 .color-three:hover { 
@@ -94,7 +127,7 @@ body {
 }
 
 .fade {
-    background-image: url(../image/pesos-arg.jpg) ;
+    background-image: url(../image/pesos-arg.jpg);    
 }
 
 .event-form {
@@ -104,6 +137,7 @@ border: 1px solid rgb(206, 193, 193);
 color: black;
 border-radius: 2px;
 margin-bottom: 0.5em;
+
 }
 
 .modal-content {
@@ -146,14 +180,14 @@ li {
 
 /*Tablet property*/
 @media only screen and (min-width: 401px) and (max-width: 960px){
-    .title-h1 { 
-        font-size: 2em;
+    .title-logo { 
+        height: 9em;
     }
     
-    .title-h2 { 
+    .title-h2, .paragraph-pay { 
         font-size: 1.5em;
-    }
-    
+     }
+        
     .title-h3 { 
         font-size: 1.3em;
     }
@@ -168,19 +202,19 @@ li {
     }
 }
 
-/*Desktop property*/
- 
+/*Desktop property*/ 
 @media only screen and (min-width: 961px) {
     body {
         margin-left: 10%;
         margin-right: 10%;
     }    
-    .title-h1 { 
-        font-size: 2.4em;
+    
+    .title-logo { 
+        height: 10em;
     }
     
-    .title-h2 { 
-        font-size: 2em;
+    .title-h2, .paragraph-pay { 
+        font-size: 1.8em;
     }
     
     .title-h3 { 
