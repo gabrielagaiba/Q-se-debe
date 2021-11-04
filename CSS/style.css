@@ -51,12 +51,10 @@ body {
 
 .expenses-section { 
     width: 95%;
-    margin: 0;
-    box-sizing: content-box;
-    border: solid rgb(36, 32, 32) 2px;
     padding: 0.5em;
     margin: 0.3em;
-    align-items: center;
+    box-sizing: content-box;
+    border: solid rgb(36, 32, 32) 2px;
 }
 
 .expenses-section { 
@@ -94,7 +92,7 @@ body {
 }
 
 .table-style {
-    width: 95%;
+    width: 100%;
     align-items: center;
 }
 

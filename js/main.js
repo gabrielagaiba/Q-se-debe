@@ -2,7 +2,7 @@ let calculator = new Calculator();
 URLGET =  "https://jsonplaceholder.typicode.com/posts";
 // Get user name, event name and event date to local storage
 $(document).ready(function() {
-    $('#modal-one').modal('toggle');
+    $('#exampleModalToggle').modal('toggle');
     if (localStorage.getItem('userName')){
         document.getElementById('js-user-name').value = localStorage.getItem('userName');
     }
@@ -17,7 +17,7 @@ $(document).ready(function() {
 // User name value, name and date of the event value
 let eventBtn = document.getElementById('js-btn-ev');
 eventBtn.addEventListener('click', function() {
-    $('#modal-one').modal('toggle');
+    $('#exampleModalToggle').modal('toggle');
     let userName = document.getElementById('js-user-name').value;
     let eventName = document.getElementById('js-ev-name').value;
     let eventDate = document.getElementById('js-date').value;
@@ -33,10 +33,10 @@ eventBtn.addEventListener('click', function() {
     $.post(URLGET, infoPost, (response,state) => { 
         console.log(response, state);
         if(state === "success") {
-            document.getElementById('modal-label-two').textContent = `Creaste el evento ${response.nombre} con fecha ${response.fecha}`;
+            document.getElementById('exampleModalToggleLabel2').textContent = `Creaste el evento ${response.nombre} con fecha ${response.fecha}`;
             document.getElementById('js-welcome-subtitle').textContent = `${userName.toUpperCase()} carga tus gastos para ${response.nombre} (${response.fecha}) `;
         }else {
-            document.getElementById('modal-label-two').textContent = `Hubo un error al cargar los datos.`;
+            document.getElementById('exampleModalToggleLabel2').textContent = `Hubo un error al cargar los datos.`;
         }
     });
 });
