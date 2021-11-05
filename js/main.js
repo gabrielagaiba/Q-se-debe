@@ -52,6 +52,7 @@ $('#js-operation').submit(function(e){
     addItemHTML(item, type, cost, calculator.getSpendsLength());
     calculator.addSpend(spend);
     updateBalanceHTML();
+    document.getElementById('js-person-pay').textContent = '';
     $('#js-item').val('');
     $('#js-type').val('');
     $('#js-cost').val('');
@@ -101,7 +102,7 @@ function deleteElement(id){
     // Add again all spends to table
     addItemsTableHTML();    
     updateBalanceHTML();
-    document.getElementById('js-person-pay').textContent = ``;
+    document.getElementById('js-person-pay').textContent = '';
 }
 
 //Button can be orders the price of items upwad

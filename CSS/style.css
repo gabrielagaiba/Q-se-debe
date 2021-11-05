@@ -12,28 +12,32 @@ body {
 }
 
 .title-logo {
-    height: 7em;
+    height: 9em;
 }
 
 .title-h2, .paragraph-pay {
     margin: auto;
     font-size: 1.3em;
     padding: 0.3em;   
-    font-weight:600;
+    font-weight:500;
 }
 
 .paragraph-pay {
     color: white;
+    padding: 1px;
 }
+
+.title-h3, .title-h5, .expenses-section, .person-pay-style, .expenses-section-buttons, .btn, .th-borrar {
+    margin: 0.3em;
+}
+
 
 .title-h3 {
     font-size: 1.2em;
-    margin: 0.3em;
 }
 
 .title-h5 {
     font-size: 1.2;
-    margin: 0.3em;
 }
 
 .balance-style {
@@ -42,17 +46,21 @@ body {
     padding: 0.2em;
 }
 
+.subtitle-style, .expenses-section, .person-pay-style, .expenses-section-buttons {
+    width: 95%;    
+}
+
 .subtitle-style {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
 }
 
 .expenses-section { 
-    width: 95%;
     padding: 0.5em;
-    margin: 0.3em;
+}
+
+.expenses-section, .person-pay {
     box-sizing: content-box;
     border: solid rgb(36, 32, 32) 2px;
 }
@@ -62,43 +70,33 @@ body {
     height: 15em;
 }
 
-.person-pay-style {
-    width: 95%;    
-    margin: 0.3em;
+.person-pay-style, .expenses-section-buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.subtitle-style, .expenses-section-buttons, .person-pay, .table-style  {
+    align-items: center;
 }
 
 .person-pay {
     width: 80%;
-    height: 2.3em;
-    margin: auto;
-    background-color: rgb(250, 4, 127);   
-    box-sizing: content-box;
-    border: solid rgb(36, 32, 32) 1px;
+    height: 2.5em;
+    background-color: rgb(250, 4, 127);
     border-radius: 5px;
-    align-items: center;
 }
 
-
-.expenses-section-buttons {   
-    width: 95%;
+.expenses-section-buttons {
     margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .table-style {
     width: 100%;
-    align-items: center;
 }
 
 .btn, .th-borrar {
     color: white;
-    margin: 0.3em;
 }
 
 .btn, .delete-btn:hover{
@@ -179,7 +177,7 @@ li {
 /*Tablet property*/
 @media only screen and (min-width: 401px) and (max-width: 960px){
     .title-logo { 
-        height: 9em;
+        height: 10em;
     }
     
     .title-h2, .paragraph-pay { 
@@ -207,8 +205,8 @@ li {
         margin-right: 10%;
     }    
     
-    .title-logo { 
-        height: 10em;
+    .title-logo {
+        height: 10.5em;
     }
     
     .title-h2, .paragraph-pay { 
@@ -228,6 +226,6 @@ li {
         height: 1.5em;
     }
     .expenses-section { 
-        height: 13em;
+        height: 12.5em;
     }
 }
