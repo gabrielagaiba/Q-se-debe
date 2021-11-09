@@ -131,7 +131,7 @@ assistantsForm.addEventListener('submit', function(e) {
     e.preventDefault();
     let person = document.getElementById('js-person').value;
     $('#exampleModalToggleLabelFour').modal('toggle');
-    document.getElementById('js-person-pay').textContent = `De los ${person} participantes, cada uno pagará $ ${calculator.paymentPerPerson(person)}.`;
+    document.getElementById('js-person-pay').textContent = `Cada uno pagará $ ${calculator.paymentPerPerson(person)}.`;
     $('#js-person-pay').fadeIn('2000').fadeOut('2000', function(){
         $('#js-person-pay').fadeIn('fast');
     });
